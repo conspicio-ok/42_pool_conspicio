@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_params.c                                  :+:      :+:    :+:   */
+/*   ft_rev_params.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raserre- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rserre-- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/05 11:21:53 by raserre-          #+#    #+#             */
-/*   Updated: 2024/07/05 11:27:25 by raserre-         ###   ########.fr       */
+/*   Created: 2023/08/11 11:20:42 by rserre--          #+#    #+#             */
+/*   Updated: 2023/08/11 11:26:24 by rserre--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putstr(char *str)
+void	ft_putarg(char *str)
 {
-	while (*str)
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
 	{
-		write(1, str, 1);
-		str++;
+		write(1, &str[i], 1);
+		i++;
 	}
+	write(1, "\n", 1);
 }
 
 int	main(int argc, char *argv[])
@@ -26,13 +30,9 @@ int	main(int argc, char *argv[])
 	int	i;
 
 	i = 1;
-	if (argc == 1)
-		return (0);
-	while (argv[i])
+	while (i < argc)
 	{
-		ft_putstr(argv[i]);
-		ft_putstr("\n");
+		ft_putarg(argv[argc - i]);
 		i++;
 	}
-	return (0);
 }

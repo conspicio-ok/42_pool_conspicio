@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_program_name.c                            :+:      :+:    :+:   */
+/*   print.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raserre- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: raserre- <raserre-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/05 11:16:20 by raserre-          #+#    #+#             */
-/*   Updated: 2024/07/05 11:21:15 by raserre-         ###   ########.fr       */
+/*   Created: 2024/07/15 13:42:03 by raserre-          #+#    #+#             */
+/*   Updated: 2024/07/17 12:57:50 by raserre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "bsq.h"
 
 void	ft_putstr(char *str)
 {
@@ -21,10 +21,12 @@ void	ft_putstr(char *str)
 	}
 }
 
-int	main(int argc, char *argv[])
+void	ft_print_map(char **map)
 {
-	if (argc < 1)
-		return (0);
-	ft_putstr(argv[0]);
-	return (0);
+	while (**map)
+	{
+		ft_putstr(*map);
+		ft_putstr("\n");
+		map++;
+	}
 }

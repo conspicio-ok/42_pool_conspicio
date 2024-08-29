@@ -1,1 +1,3 @@
-git status --ignored=traditional -s | grep '!!*' | awk '{print $2}'
+#!/bin/sh
+
+git ls-files -oi --exclude-standard
